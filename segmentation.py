@@ -159,8 +159,8 @@ def scale_image(image):
 #Optionally a directory to save results to can be specified
 def main():
    args, config, objctives, targets, dim, checkfile = load_parameters()
-   FLAGS = tf.app.flags.FLAGS
-   tf.app.flags.DEFINE_string('checkpoint_dir', checkfile, 'checkpoint_directory')
+   FLAGS = tf.compatv1.flags.FLAGS
+   tf.compatv1.flags.DEFINE_string('checkpoint_dir', checkfile, 'checkpoint_directory')
    if not os.path.exists(args['output']):
       os.makedirs(args['output'])
    with tf.Session() as sess:
