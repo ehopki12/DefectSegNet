@@ -164,7 +164,7 @@ def main():
    if not os.path.exists(args['output']):
       os.makedirs(args['output'])
    with tf.compat.v1.Session() as sess:
-      new_saver = tf.train.import_meta_graph('%s.meta'%(checkfile))
+      new_saver = tf.compat.v1.train.import_meta_graph('%s.meta'%(checkfile))
 #      new_saver.restore(sess, tf.train.latest_checkpoint('/'.join(checkfile.split('/')[:-1])))
       new_saver.restore(sess, checkfile)
       for image in args['image']:
