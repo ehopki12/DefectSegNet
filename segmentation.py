@@ -163,7 +163,7 @@ def main():
    tf.compat.v1.flags.DEFINE_string('checkpoint_dir', checkfile, 'checkpoint_directory')
    if not os.path.exists(args['output']):
       os.makedirs(args['output'])
-   with tf.Session() as sess:
+   with tf.compat.v1.Session() as sess:
       new_saver = tf.train.import_meta_graph('%s.meta'%(checkfile))
 #      new_saver.restore(sess, tf.train.latest_checkpoint('/'.join(checkfile.split('/')[:-1])))
       new_saver.restore(sess, checkfile)
